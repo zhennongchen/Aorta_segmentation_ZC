@@ -7,7 +7,7 @@ import os
 from skimage.measure import block_reduce
 from scipy import ndimage
 from dipy.align.reslice import reslice
-import whole_heart_segmentation_ZC.functions_collection as ff
+import Aorta_segmentation_ZC.functions_collection as ff
 
 # function: histogram equalization
 def equalize_histogram(bins, hist, weight):
