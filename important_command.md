@@ -15,18 +15,16 @@ nnUNet_convert_decathlon_task -i $nnUNet_raw_data_base/nnUNet_raw_data/Task01_ST
 (here should be 2 digits 01,02, and program will generate a folder with 3 digits 001, 002 for us)  # see https://github.com/MIC-DKFZ/nnUNet/blob/nnunetv1/documentation/setting_up_paths.md
 
 2. preprocess data
-nnUNetv2_plan_and_preprocess -d 502 -c 3d_fullres -pl nnUNetPlannerResEncL -np 16 
-
-#nnUNet_plan_and_preprocess -t 1
+nnUNetv2_plan_and_preprocess -d 502 -c 3d_fullres -pl nnUNetPlannerResEncM -np 1
+# change batch_size = 1
 
 3. train 
-nnUNet_train 3d_fullres nnUNetTrainerV2 1 0  # 1 is the task id, 0 is the fold id  (--continue_training if continue)
+nnUNetv2_train 502 3d_lowres 0 -p nnUNetResEncUNetMPlans -tr nnUNetTrainer_onlyMirror01_DA5 (Add --c for continue)
 
 4. predict (make folders first)
 # change the model_best to model_final_checkpoint.model
-nnUNet_predict -i /mnt/camca_NAS/SAM_for_CMR/data/nnUNet_data/nnUNet_raw_data_base/nnUNet_raw_data/Task001_STACOM_SAX/imagesTs -o /mnt/camca_NAS/SAM_for_CMR/models/nnUNet/predicts_raw/Task001_STACOM_SAX -t 1 -m 3d_fullres
+nnUNetv2_predict_from_modelfolder -i /host/d/Data/CTA/nnUNet_raw/Dataset502_Aorta/imagesTs -o /host/d/projects/aorta_seg/models/Dataset502_Aorta/results/EncUNetM_3d_lowres/predicts_raw -m /host/d/projects/aorta_seg/models/Dataset502_Aorta/nnUNetTrainer_onlyMirror01_DA5__nnUNetResEncUNetMPlans__3d_lowres -f 0
 
-nnUNet_predict -i /mnt/camca_NAS/SAM_for_CMR/data/nnUNet_data/nnUNet_raw_data_base/nnUNet_raw_data/Task013_MM_zeroshot/imagesTs -o /mnt/camca_NAS/SAM_for_CMR/models/nnUNet/predicts_raw/Task013_MM_zeroshot -t 13 -m 3d_fullres
 
 
 
