@@ -19,6 +19,7 @@ def load_nrrd(file_path):
     affine[:3, :3] = direction * spacing.reshape(1, 3)
     affine[:3, 3] = origin
     data = sitk.GetArrayFromImage(image_file)
+
     return data,affine, spacing, origin, direction
         
     
