@@ -26,7 +26,7 @@ nnUNetv2_train 503 3d_fullres 0 -p nnUNetResEncUNetMPlans -tr nnUNetTrainer_only
 
 4. predict (make folders first)
 # change the model_best to model_final_checkpoint.model
-nnUNetv2_predict_from_modelfolder -i /host/d/Data/CTA/nnUNet_raw/Dataset503_AortaProcessed/imagesTs -o /host/d/projects/aorta_seg/models/Dataset503_AortaProcessed/results/EncUNetM_3d_fullres/predicts_raw -m /host/d/projects/aorta_seg/models/Dataset503_AortaProcessed/nnUNetTrainer_onlyMirror01_DA5__nnUNetResEncUNetMPlans__3d_fullres -f 0
+nnUNetv2_predict_from_modelfolder -i /host/d/Data/CTA/nnUNet_raw/Dataset503_AortaProcessed/imagesTs -o /host/d/projects/aorta_seg/models/Dataset503_AortaProcessed/results/EncUNetM_3d_fullres/predicts_raw/fold_0 -m /host/d/projects/aorta_seg/models/Dataset503_AortaProcessed/nnUNetTrainer_onlyMirror01_DA5__nnUNetResEncUNetMPlans__3d_fullres -f 0
 
 
 
