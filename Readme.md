@@ -1,6 +1,9 @@
-install:
+# Segment ascending aorta using nnUNetRecEncUNet
+**Author: Zhennong Chen, Xi'an Jiaotong-Liverpool University, 2026**
+
+step 0: install nnUNet
+do it in the terminal as the root user of docker 
 git clone https://github.com/MIC-DKFZ/nnUNet.git
-# do it in the terminal as the root user of docker 
 cd nnUNet
 pip install -e .
 
