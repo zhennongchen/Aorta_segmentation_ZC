@@ -55,6 +55,7 @@ def crop_or_pad(array, target, value):
     ind = tuple([slice(0, t) for t in target])
     return array[ind]
 
+
 def correct_shift_caused_in_pad_crop_loop(img):
     # if an image goes from [a,b,c] --> pad --> [A,B,c] --> crop --> [a,b,c], when a,b is even, it goes back to original image, but when a,b is odd, it need to shift by 1 pixel in x and y
     if img.shape[0] % 2 == 1:
@@ -65,24 +66,6 @@ def correct_shift_caused_in_pad_crop_loop(img):
         img = np.copy(img)
     return img
 
-
-def adapt(x, cutoff = False,add_noise = False, sigma = 5, normalize = True, expand_dim = True):
-    x = np.load(x, allow_pickle = True)
-    
-    if cutoff == True:
-        x = cutoff_intensity(x, -1000)
-    
-    if add_noise == True:
-        ValueError('WRONG NOISE ADDITION CODE')
-        x =  x + np.random.normal(0, sigma, x.shape) 
-
-    if normalize == True:
-        x = normalize_image(x)
-    
-    if expand_dim == True:
-        x = np.expand_dims(x, axis = -1)
-    # print('after adapt, shape of x is: ', x.shape)
-    return x
 
 
 def normalize_image(x, normalize_factor = 1000, image_max = 100, image_min = -100, final_max = 1, final_min = -1 , invert = False):
