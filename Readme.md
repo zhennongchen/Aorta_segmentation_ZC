@@ -7,19 +7,19 @@ git clone https://github.com/MIC-DKFZ/nnUNet.git  <br />
 cd nnUNet  <br />
 pip install -e .  <br />
 
-## step 1: in the terminal as the root user of docker, type the following pathes
+## step 1: in the terminal as the root user of docker, type the following paths
 export nnUNet_raw="/host/d/Data/CTA/nnUNet_raw"  <br />
 export nnUNet_preprocessed="/host/d/Data/CTA/nnUNet_preprocessed"  <br />
 export nnUNet_results="/host/d/projects/aorta_seg/models"  <br />
 export nnUNet_compile=0 <br />
 
-## step 2: preprocessing the data using image_preprocessing.ipynb
+## step 2: preprocess the data using image_preprocessing.ipynb
 
 ## step 3: prepare the nnUNet dataset using prepare_nnunet_data.ipynb
 - For our dataset (TAA), i call it Dataset504_AortaTAA  <br />
 - For public dataset, i call it Dataset503_AortaProcessed  <br />
 
-## step 4. preprocess data for nnUNet experiments
+## step 4. plan and preprocess data for nnUNet experiments
 - in the terminal, type:  <br />
    nnUNetv2_plan_and_preprocess -d 504 -c 3d_fullres -pl nnUNetPlannerResEncM -np 1
 - in the generated text file (nnUNetResEncUNetMPlans.txt), change the batch_size to 1 if GPU memory is limited.  <br />
