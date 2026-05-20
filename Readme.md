@@ -8,8 +8,8 @@ cd nnUNet  <br />
 pip install -e .  <br />
 
 ## step 1: in the terminal as the root user of docker, type the following paths
-export nnUNet_raw="/host/d/Data/CTA/nnUNet_raw"  <br />
-export nnUNet_preprocessed="/host/d/Data/CTA/nnUNet_preprocessed"  <br />
+export nnUNet_raw="/host/e/D/Data/CTA/nnUNet_raw"  <br />
+export nnUNet_preprocessed="/host/e/D/Data/CTA/nnUNet_preprocessed"  <br />
 export nnUNet_results="/host/d/projects/aorta_seg/models"  <br />
 export nnUNet_compile=0 <br />
 
@@ -38,7 +38,7 @@ export nnUNet_compile=0 <br />
 - make folders where you are going to save the prediction results, e.g.,  <br />
   /host/d/projects/aorta_seg/models/Dataset504_AortaTAA/results/EncUNetM_3d_fullres/predicts_raw/fold_0
 - in the terminal, type:  <br />
-nnUNetv2_predict_from_modelfolder -i /host/d/Data/CTA/nnUNet_raw/Dataset504_AortaTAA/imagesTs -o /host/d/projects/aorta_seg/models/Dataset504_AortaTAA/results/EncUNetM_3d_fullres/predicts_raw/fold_0 -m /host/d/projects/aorta_seg/models/Dataset504_AortaTAA/nnUNetTrainer_onlyMirror01_DA5__nnUNetResEncUNetMPlans__3d_fullres -f 0
+nnUNetv2_predict_from_modelfolder -i /host/e/D/Data/CTA/nnUNet_raw/Dataset509_AortaTAA20260516_required/imagesTs -o /host/d/projects/aorta_seg/models/Dataset509_AortaTAA20260516_required/results/EncUNetM_3d_fullres/predicts_raw/fold_2 -m /host/d/projects/aorta_seg/models/Dataset506_AortaTAA20260225_finetune/nnUNetTrainer_onlyMirror01_DA5__nnUNetResEncUNetMPlans__3d_fullres -f 2
 
 ## step 7. post-processing and quantitative analysis using post_processing.ipynb
 
