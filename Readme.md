@@ -6,6 +6,7 @@ do it in the terminal as the root user of docker  <br />
 git clone https://github.com/MIC-DKFZ/nnUNet.git  <br />
 cd nnUNet  <br />
 pip install -e .  <br />
+可能会改变numpy，torch等依赖的版本，需要注意
 
 ## step 1: in the terminal as the root user of docker, type the following paths
 export nnUNet_raw="/host/e/D/Data/CTA/nnUNet_raw"  <br />
@@ -21,7 +22,7 @@ export nnUNet_compile=0 <br />
 
 ## step 4. plan and preprocess data for nnUNet experiments
 - in the terminal, type:  <br />
-   nnUNetv2_plan_and_preprocess -d 504 -c 3d_fullres -pl nnUNetPlannerResEncM -np 1
+   nnUNetv2_plan_and_preprocess -d 510 -c 3d_fullres -pl nnUNetPlannerResEncM -np 1
 - in the generated text file (nnUNetResEncUNetMPlans.txt), change the batch_size to 1 if GPU memory is limited.  <br />
 
 
@@ -38,7 +39,7 @@ export nnUNet_compile=0 <br />
 - make folders where you are going to save the prediction results, e.g.,  <br />
   /host/d/projects/aorta_seg/models/Dataset504_AortaTAA/results/EncUNetM_3d_fullres/predicts_raw/fold_0
 - in the terminal, type:  <br />
-nnUNetv2_predict_from_modelfolder -i /host/e/D/Data/CTA/nnUNet_raw/Dataset509_AortaTAA20260516_required/imagesTs -o /host/d/projects/aorta_seg/models/Dataset509_AortaTAA20260516_required/results/EncUNetM_3d_fullres/predicts_raw/fold_2 -m /host/d/projects/aorta_seg/models/Dataset506_AortaTAA20260225_finetune/nnUNetTrainer_onlyMirror01_DA5__nnUNetResEncUNetMPlans__3d_fullres -f 2
+nnUNetv2_predict_from_modelfolder -i /host/e/D/Data/CTA/nnUNet_raw/Dataset510_AortaTAA20260612_required/imagesTs -o /host/d/projects/aorta_seg/models/Dataset510_AortaTAA20260612_required/results/EncUNetM_3d_fullres/predicts_raw/fold_2 -m /host/d/projects/aorta_seg/models/Dataset506_AortaTAA20260225_finetune/nnUNetTrainer_onlyMirror01_DA5__nnUNetResEncUNetMPlans__3d_fullres -f 2
 
 ## step 7. post-processing and quantitative analysis using post_processing.ipynb
 
